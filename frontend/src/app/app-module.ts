@@ -27,8 +27,6 @@
 // ++
 
 import {
-  APP_INITIALIZER,
-  Injector,
   NgModule,
 } from '@angular/core';
 import {BrowserModule} from "@angular/platform-browser";
@@ -39,12 +37,6 @@ import {BrowserModule} from "@angular/platform-browser";
     BrowserModule,
   ],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeServices,
-      deps: [Injector],
-      multi: true
-    }
   ],
   declarations: [
   ],
@@ -52,9 +44,4 @@ import {BrowserModule} from "@angular/platform-browser";
   ]
 })
 export class AppModule {
-}
-
-export function initializeServices(injector:Injector) {
-  return () => {
-  };
 }

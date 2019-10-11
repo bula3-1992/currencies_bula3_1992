@@ -2,7 +2,7 @@ import {enableProdMode} from '@angular/core';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {environment} from './environments/environment';
 import * as jQuery from "jquery";
-import {AppModule} from "./app/appModule";
+import {AppModule} from "./app/app-module";
 
 (window as any).global = window;
 
