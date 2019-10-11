@@ -1,5 +1,7 @@
 {
   "name": "currencies_bula3_1992",
   "private": true,
-  "dependencies": {}
+  "scripts": {
+    "postinstall": "cd frontend && npm install --no-shrinkwrap"
+  }
 }
