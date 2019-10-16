@@ -2,6 +2,7 @@
   "name": "currencies_bula3_1992",
   "private": true,
   "scripts": {
-    "postinstall": "cd frontend && npm install --no-shrinkwrap"
+    "postinstall": "cd frontend && npm install --no-shrinkwrap",
+    "build": "cd frontend && npm run build"
   }
 }
