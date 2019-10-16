@@ -1,5 +1,19 @@
 <h3>Форсированное изменение курса (USD)</h3>
 <form action="/admin" method="post">
-  <input style="width: 380px" class="-augmented-datepicker" name="currency" type="text" placeholder="Пожалуйста введите значение курса ...">
-  <button>Submit</button>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <div class="form-group row">
+    <div class="col-xs-3">
+      <label for="ex1">Дата</label>
+      <input class="form-control augmented-datepicker" id="ex1" name="date" type="text" autocomplete="off" placeholder="выберите дату ...">
+    </div>
+    <div class="col-xs-3">
+      <label for="ex2">Время</label>
+      <input class="form-control" id="ex2" type="text" autocomplete="off" name="time" placeholder="введите время ...">
+    </div>
+    <div class="col-xs-4">
+      <label for="ex3">Курсовое значение</label>
+      <input class="form-control" id="ex3" type="text" name="currency" placeholder="введите значение курса ...">
+    </div>
+  </div>
+  <button>Сохранить</button>
 </form>
