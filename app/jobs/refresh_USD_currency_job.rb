@@ -1,5 +1,5 @@
 require 'USD'
-require 'Setting'
+require 'setting'
 require 'net/http'
 require 'nokogiri'
 #require 'json'

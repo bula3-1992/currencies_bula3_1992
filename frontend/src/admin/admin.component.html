@@ -3,10 +3,10 @@
   <tr *ngFor="let row of history; let first = first; let last = last">
     <td>
       <p *ngIf="!last" class="strikethrough">
-        Значение курса {{row.currency}} от {{row.date}} {{row.time}}
+        Значение курса {{row.currency}} до {{row.date}} {{row.time}}
       </p>
       <p *ngIf="last">
-        Значение курса {{row.currency}} от {{row.date}} {{row.time}}
+        Значение курса {{row.currency}} до {{row.date}} {{row.time}}
       </p>
     </td>
   </tr>
