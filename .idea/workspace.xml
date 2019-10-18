@@ -1,32 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b4860b71-46e6-43ca-afb0-a7992225902f" name="Default Changelist" comment="Большая часть">
-      <change afterPath="$PROJECT_DIR$/app/models/Setting.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/admin/admin.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/admin/admin.component.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/services/http-service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/currencies_bula3_1992.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/currencies_bula3_1992.iml" afterDir="false" />
+    <list default="true" id="b4860b71-46e6-43ca-afb0-a7992225902f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/test/integration/common_test.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/models/USD_test.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/v1/usd.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/v1/usd.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/bundles/3rdpartylicenses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/bundles/3rdpartylicenses.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/bundles/currencies_bula3_1992-main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/bundles/currencies_bula3_1992-main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/bundles/currencies_bula3_1992-main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/bundles/currencies_bula3_1992-main.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/bundles/currencies_bula3_1992-vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/bundles/currencies_bula3_1992-vendor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/bundles/currencies_bula3_1992-vendor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/javascripts/bundles/currencies_bula3_1992-vendor.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/admin_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/admin_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/jobs/refresh_USD_currency_job.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/jobs/refresh_USD_currency_job.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/USD.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/USD.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dump.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/dump.rdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/admin/admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/admin/admin.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/init-globals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/init-globals.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/typings.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/typings.d.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -45,55 +25,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/admin/admin.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#58#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/admin/admin.component.sass">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="14" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/admin/admin.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="49" column="50" selection-start-line="49" selection-start-column="50" selection-end-line="49" selection-end-column="50" />
-              <folding>
-                <element signature="n#style#0;n#p#0;n#form#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/services/http-service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/USD.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+            <state relative-caret-position="270">
+              <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/integration/common_test.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="37" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/models/USD_test.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="395">
+              <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -103,42 +56,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gemfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/api/v1/usd.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/Setting.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/initializers/sidekiq.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -197,9 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/src/test.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/app-module.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/polyfills.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/root.component.ts" />
         <option value="$PROJECT_DIR$/frontend/tsconfig.json" />
         <option value="$PROJECT_DIR$/frontend/angular.json" />
@@ -246,8 +160,11 @@
         <option value="$PROJECT_DIR$/frontend/src/admin/admin.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/services/http-service.ts" />
         <option value="$PROJECT_DIR$/frontend/src/admin/admin.component.ts" />
-        <option value="$PROJECT_DIR$/app/models/USD.rb" />
         <option value="$PROJECT_DIR$/app/api/v1/usd.rb" />
+        <option value="$PROJECT_DIR$/test/models/USD.rb" />
+        <option value="$PROJECT_DIR$/test/integration/common_test.rb" />
+        <option value="$PROJECT_DIR$/app/models/USD.rb" />
+        <option value="$PROJECT_DIR$/test/models/USD_test.rb" />
       </list>
     </option>
   </component>
@@ -285,109 +202,24 @@
               <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
               <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="v1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="jobs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
               <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
+              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="integration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
+              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="homescreen" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="currencies_bula3_1992" type="b2602c69:ProjectViewProjectNode" />
-              <item name="currencies_bula3_1992" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -415,11 +247,11 @@
       <recent name="$PROJECT_DIR$/frontend/src/app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/integration" />
       <recent name="$PROJECT_DIR$/app" />
       <recent name="$PROJECT_DIR$/lib/api/v1" />
       <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/app/jobs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -558,7 +390,7 @@
       <workItem from="1571278790511" duration="19000" />
       <workItem from="1571287579057" duration="9134000" />
       <workItem from="1571366493989" duration="362000" />
-      <workItem from="1571374538466" duration="21786000" />
+      <workItem from="1571374538466" duration="23597000" />
     </task>
     <task id="LOCAL-00001" summary="Very first">
       <created>1570690477321</created>
@@ -616,11 +448,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571384572139</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Большая часть 2">
+      <created>1571397512445</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1571397512445</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111801000" />
+    <option name="totallyTimeSpent" value="113612000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="948" extended-state="6" />
@@ -701,7 +540,8 @@
     <MESSAGE value="Rails version" />
     <MESSAGE value="Grape added" />
     <MESSAGE value="Большая часть" />
-    <option name="LAST_COMMIT_MESSAGE" value="Большая часть" />
+    <MESSAGE value="Большая часть 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Большая часть 2" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/currencies_bula3_1992@Development__currencies_bula3_1992.rcov" NAME="Development: currencies_bula3_1992 Coverage Results" MODIFIED="1571294838750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="currencies_bula3_1992" />
@@ -764,10 +604,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/bundles/currencies_bula3_1992-main.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/currencies_bula3_1992-main.js" />
     <entry file="file://$PROJECT_DIR$/frontend/node_modules/@angular/cdk/portal.d.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1061,10 +897,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/USD.rb">
+    <entry file="file://$PROJECT_DIR$/app/api/v1/usd.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+        <state relative-caret-position="180">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/integration/common_test.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="37" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1075,10 +918,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/v1/usd.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/USD.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        <state relative-caret-position="270">
+          <caret line="18" column="70" selection-start-line="18" selection-start-column="70" selection-end-line="18" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/models/USD_test.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
         </state>
       </provider>
     </entry>
