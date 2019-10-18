@@ -6,7 +6,6 @@ ruby '2.6.1'
 gem 'foreman'
 gem 'bootstrap-sass'
 gem 'sidekiq'
-gem 'sidekiq-status'
 gem 'grape'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

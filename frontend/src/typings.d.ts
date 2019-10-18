@@ -6,6 +6,9 @@
 /// <reference path="../node_modules/@types/jqueryui/index.d.ts" />
 
 declare global {
+  interface Window {
+    appBasePath:string;
+  }
   interface JQuery {
   }
 }

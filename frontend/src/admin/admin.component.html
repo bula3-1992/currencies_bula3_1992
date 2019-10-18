@@ -1,0 +1,53 @@
+<h3>История ввода значений</h3>
+<table>
+  <tr *ngFor="let row of history; let first = first; let last = last">
+    <td>
+      <p *ngIf="!last" class="strikethrough">
+        Значение курса {{row.currency}} от {{row.date}} {{row.time}}
+      </p>
+      <p *ngIf="last">
+        Значение курса {{row.currency}} от {{row.date}} {{row.time}}
+      </p>
+    </td>
+  </tr>
+</table>
+<br>
+<h3>Форсированное изменение курса (USD)</h3>
+<form action="/admin" method="post">
+  <div class="form-group row">
+    <div class="col-xs-3">
+      <label for="ex1">Дата</label>
+      <input class="form-control augmented-datepicker"
+             id="ex1"
+             type="text"
+             autocomplete="off"
+             required
+             [(ngModel)]="date"
+             name="date"/>
+    </div>
+    <div class="col-xs-3">
+      <label for="ex2">Время</label>
+      <input class="form-control"
+             id="ex2"
+             type="text"
+             autocomplete="off"
+             required
+             [(ngModel)]="time"
+             name="time"
+             placeholder="введите время ..."/>
+    </div>
+    <div class="col-xs-4">
+      <label for="ex3">Курсовое значение</label>
+      <input class="form-control"
+             id="ex3"
+             type="text"
+             required
+             [(ngModel)]="currency"
+             name="currency"
+             placeholder="введите значение курса ..."/>
+    </div>
+  </div>
+  <button type="button" (click)="validateAndSubmit()">Сохранить</button>
+  <br>
+  <p style="color: red">{{notice}}</p>
+</form>

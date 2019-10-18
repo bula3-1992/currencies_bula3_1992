@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule} from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AdminComponent} from "../admin/admin.component";
+import {FormsModule} from "@angular/forms";
+import {HttpService} from "../services/http-service";
 
 @NgModule({
   declarations: [
@@ -11,9 +14,13 @@ import {AdminComponent} from "../admin/admin.component";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    HttpService
+  ],
   bootstrap: [
     AppComponent
   ]

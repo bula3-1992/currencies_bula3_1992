@@ -309,6 +309,28 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/admin/admin.component.html":
+/*!******************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/admin/admin.component.html ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h3>История ввода значений</h3>\n<table>\n  <tr *ngFor=\"let row of history; let first = first; let last = last\">\n    <td>\n      <p *ngIf=\"!last\" class=\"strikethrough\">\n        Значение курса {{row.currency}} от {{row.date}} {{row.time}}\n      </p>\n      <p *ngIf=\"last\">\n        Значение курса {{row.currency}} от {{row.date}} {{row.time}}\n      </p>\n    </td>\n  </tr>\n</table>\n<br>\n<h3>Форсированное изменение курса (USD)</h3>\n<form action=\"/admin\" method=\"post\">\n  <div class=\"form-group row\">\n    <div class=\"col-xs-3\">\n      <label for=\"ex1\">Дата</label>\n      <input class=\"form-control augmented-datepicker\"\n             id=\"ex1\"\n             type=\"text\"\n             autocomplete=\"off\"\n             required\n             [(ngModel)]=\"date\"\n             name=\"date\"/>\n    </div>\n    <div class=\"col-xs-3\">\n      <label for=\"ex2\">Время</label>\n      <input class=\"form-control\"\n             id=\"ex2\"\n             type=\"text\"\n             autocomplete=\"off\"\n             required\n             [(ngModel)]=\"time\"\n             name=\"time\"\n             placeholder=\"введите время ...\"/>\n    </div>\n    <div class=\"col-xs-4\">\n      <label for=\"ex3\">Курсовое значение</label>\n      <input class=\"form-control\"\n             id=\"ex3\"\n             type=\"text\"\n             required\n             [(ngModel)]=\"currency\"\n             name=\"currency\"\n             placeholder=\"введите значение курса ...\"/>\n    </div>\n  </div>\n  <button type=\"button\" (click)=\"validateAndSubmit()\">Сохранить</button>\n  <br>\n  <p style=\"color: red\">{{notice}}</p>\n</form>\n"
+
+/***/ }),
+
+/***/ "./src/admin/admin.component.sass":
+/*!****************************************!*\
+  !*** ./src/admin/admin.component.sass ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".strikethrough {\n  text-decoration: line-through;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2J1bGF0L1J1YnltaW5lUHJvamVjdHMvY3VycmVuY2llc19idWxhM18xOTkyL2Zyb250ZW5kL3NyYy9hZG1pbi9hZG1pbi5jb21wb25lbnQuc2FzcyIsInNyYy9hZG1pbi9hZG1pbi5jb21wb25lbnQuc2FzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDZCQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FkbWluL2FkbWluLmNvbXBvbmVudC5zYXNzIiwic291cmNlc0NvbnRlbnQiOlsiLnN0cmlrZXRocm91Z2hcbiAgdGV4dC1kZWNvcmF0aW9uOiBsaW5lLXRocm91Z2hcbiIsIi5zdHJpa2V0aHJvdWdoIHtcbiAgdGV4dC1kZWNvcmF0aW9uOiBsaW5lLXRocm91Z2g7XG59Il19 */"
+
+/***/ }),
+
 /***/ "./src/admin/admin.component.ts":
 /*!**************************************!*\
   !*** ./src/admin/admin.component.ts ***!
@@ -322,30 +344,64 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminComponent", function() { return AdminComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/http-service */ "./src/services/http-service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+
+
 
 
 
 const adminSelector = 'admin-component';
 let AdminComponent = class AdminComponent {
-    constructor() {
-        this.notice = "Hello";
-        this.$ex1 = jquery__WEBPACK_IMPORTED_MODULE_2__("#ex1");
-        this.$ex1.on("change", () => {
-            alert("Handler for .change() called.");
-        });
+    constructor(http) {
+        this.http = http;
+        this.notice = "";
+        this.date = Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["formatDate"])(new Date(), 'dd.MM.yyyy', 'en');
+        this.appBasePath = window.appBasePath ? window.appBasePath : '';
     }
     ngOnInit() {
+        this.refreshhistory();
+    }
+    refreshhistory() {
+        this.http.getData(this.appBasePath + '/v1/usd/history')
+            .subscribe((data) => { this.history = data; });
+    }
+    validateAndSubmit() {
+        let tryDateTime = moment__WEBPACK_IMPORTED_MODULE_4__(this.date.substr(6, 4) + '-' +
+            this.date.substr(3, 2) + '-' +
+            this.date.substr(0, 2) + 'T' +
+            this.time + ':00');
+        if (tryDateTime.isValid()) {
+            if (this.currency && this.currency !== '') {
+                this.notice = "";
+                this.submit();
+            }
+            else {
+                this.notice = "Введите какое-нибудь значение";
+            }
+        }
+        else {
+            this.notice = "Вы ввели неправильную дату и время";
+        }
+    }
+    submit() {
+        this.http.postData(this.appBasePath + '/v1/usd', { date: this.date, time: this.time, currency: this.currency, forced: true }).subscribe(res => {
+            this.refreshhistory();
+        }, err => {
+            console.log("Error occured");
+        });
     }
 };
+AdminComponent.ctorParameters = () => [
+    { type: _services_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"] }
+];
 AdminComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: adminSelector,
-        template: `
-    <br>
-    <p style="color: red;">{{notice}}</p>
-  `
+        template: __webpack_require__(/*! raw-loader!./admin.component.html */ "./node_modules/raw-loader/index.js!./src/admin/admin.component.html"),
+        styles: [__webpack_require__(/*! ./admin.component.sass */ "./src/admin/admin.component.sass")]
     })
 ], AdminComponent);
 
@@ -431,10 +487,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../admin/admin.component */ "./src/admin/admin.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../admin/admin.component */ "./src/admin/admin.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _services_http_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/http-service */ "./src/services/http-service.ts");
+
+
+
 
 
 
@@ -444,18 +506,22 @@ __webpack_require__.r(__webpack_exports__);
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-            _admin_admin_component__WEBPACK_IMPORTED_MODULE_5__["AdminComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
+            _admin_admin_component__WEBPACK_IMPORTED_MODULE_6__["AdminComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"]
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"]
         ],
-        providers: [],
+        providers: [
+            _services_http_service__WEBPACK_IMPORTED_MODULE_8__["HttpService"]
+        ],
         bootstrap: [
-            _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]
         ]
     })
 ], AppModule);
@@ -559,6 +625,7 @@ __webpack_require__.r(__webpack_exports__);
 // See doc/COPYRIGHT.rdoc for more details.
 //++
 
+window.appBasePath = jQuery('meta[name=app_base_path]').attr('content') || '';
 /**
  * A set of listeners that are relevant on every page to set sensible defaults
  */
@@ -617,36 +684,71 @@ __webpack_require__(/*! jquery.caret */ "./node_modules/jquery.caret/dist/jquery
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/fesm2015/platform-browser-dynamic.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/app.module */ "./src/app/app.module.ts");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/app.module */ "./src/app/app.module.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
 
 
-
+//import * as jQuery from "jquery";
 
 
 window.global = window;
 __webpack_require__(/*! ./init-vendors */ "./src/init-vendors.js");
 __webpack_require__(/*! ./init-globals */ "./src/init-globals.ts");
-if (_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].production) {
+if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].production) {
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["enableProdMode"])();
 }
-jquery__WEBPACK_IMPORTED_MODULE_2__(function () {
-    Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"])
+var initAngular = function () {
+    Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"])
         .then(platformRef => {
-        jquery__WEBPACK_IMPORTED_MODULE_2__('body').addClass('__ng2-bootstrap-has-run');
+        jQuery('body').addClass('__ng2-bootstrap-has-run');
     }).catch(err => console.error(err));
-});
-(function ($) {
-    $(function () {
-        console.log('Initializing');
-        $(document)
-            .ajaxStop(() => {
-            console.log(111);
-        });
-    });
-}(jquery__WEBPACK_IMPORTED_MODULE_2__));
+};
+jQuery(document).on('turbolinks:load', initAngular);
+
+
+/***/ }),
+
+/***/ "./src/services/http-service.ts":
+/*!**************************************!*\
+  !*** ./src/services/http-service.ts ***!
+  \**************************************/
+/*! exports provided: HttpService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpService", function() { return HttpService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let HttpService = class HttpService {
+    constructor(injector, http) {
+        this.injector = injector;
+        this.http = http;
+        this.httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                'Content-Type': 'application/json',
+            })
+        };
+    }
+    postData(url, body) {
+        return this.http.post(url, body, this.httpOptions);
+    }
+    getData(url) {
+        return this.http.get(url);
+    }
+};
+HttpService.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+HttpService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], HttpService);
+
 
 
 /***/ })

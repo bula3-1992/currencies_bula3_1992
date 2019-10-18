@@ -28,6 +28,7 @@
 
 import {augmentedDatePicker} from "./global-listeners/augmented-date-picker";
 
+window.appBasePath = jQuery('meta[name=app_base_path]').attr('content') || '';
 /**
  * A set of listeners that are relevant on every page to set sensible defaults
  */

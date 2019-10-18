@@ -8,14 +8,15 @@ class USD
 
   def self.update(params)
     @@datetime = Time.strptime(params[:time] + params[:date], "%H:%M%d.%m.%Y")
-    if params[:background] == 'true'
+    if params["forced"] == false
       if Time.now > @@datetime
         self.currency = params[:currency]
       end
     else
       self.currency = params[:currency]
       hash = Hash.new
-      hash['datetime'] = @@datetime
+      hash['date'] = params[:date]
+      hash['time'] = params[:time]
       hash['currency'] = self.currency
       @@forced << hash
     end

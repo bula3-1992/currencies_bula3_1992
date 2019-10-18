@@ -11,7 +11,7 @@ module V1
       end
 
       post '/' do
-        puts 'Hello'
+        USD.update params
       end
     end
   end
