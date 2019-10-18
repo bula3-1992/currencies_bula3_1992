@@ -1,18 +1,27 @@
+<h3>История ввода значений</h3>
+<table>
+  <% for hist in @history %>
+    <tr>
+      <td><%= hist['datetime'].strftime("%d.%m.%Y %H:%M") + ' ' + hist['currency'] %></td>
+    </tr>
+  <% end %>
+</table>
+<br>
 <h3>Форсированное изменение курса (USD)</h3>
 <form action="/admin" method="post">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <div class="form-group row">
     <div class="col-xs-3">
       <label for="ex1">Дата</label>
-      <input class="form-control augmented-datepicker" id="ex1" name="date" type="text" autocomplete="off" placeholder="выберите дату ...">
+      <input class="form-control augmented-datepicker" id="ex1" name="date" type="text" autocomplete="off" placeholder="выберите дату ..." required>
     </div>
     <div class="col-xs-3">
       <label for="ex2">Время</label>
-      <input class="form-control" id="ex2" type="text" autocomplete="off" name="time" placeholder="введите время ...">
+      <input class="form-control" id="ex2" type="text" autocomplete="off" name="time" placeholder="введите время ..." required>
     </div>
     <div class="col-xs-4">
       <label for="ex3">Курсовое значение</label>
-      <input class="form-control" id="ex3" type="text" name="currency" placeholder="введите значение курса ...">
+      <input class="form-control" id="ex3" type="text" name="currency" placeholder="введите значение курса ..." required>
     </div>
   </div>
   <button>Сохранить</button>

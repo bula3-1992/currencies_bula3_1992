@@ -5,7 +5,8 @@ ruby '2.6.1'
 
 gem 'foreman'
 gem 'bootstrap-sass'
-gem 'sidekiq', '~> 4.1', '>= 4.1.2'
+gem 'sidekiq'
+gem 'sidekiq-status'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

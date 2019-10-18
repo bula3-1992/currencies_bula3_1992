@@ -2,7 +2,6 @@ require 'USD'
 
 class HomescreenController < ApplicationController
   def index
-    usd = USD.new
-    @currency = usd.get
+    @currency = USD.currency
   end
 end

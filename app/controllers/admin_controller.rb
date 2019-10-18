@@ -1,9 +1,11 @@
 class AdminController < ApplicationController
-  def index
+  skip_before_action :verify_authenticity_token
 
+  def index
+    @history = USD.get_history
   end
 
   def update
-    puts params[:currency]
+    USD.update params
   end
 end

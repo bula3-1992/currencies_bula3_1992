@@ -11,13 +11,14 @@
   </head>
 
   <body>
+
     <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="/">Home</a>
-      <a class="navbar-brand" href="/admin">Admin</a>
+      <%=link_to 'Home', home_path, {:class=>"navbar-brand"} %>
+      <%=link_to 'Admin', admin_index_path, {:class=>"navbar-brand"} %>
     </nav>
     <div class="container">
       <%= yield %>
+      <app-root></app-root>
     </div>
-    <app-root></app-root>
   </body>
 </html>

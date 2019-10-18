@@ -322,16 +322,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminComponent", function() { return AdminComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 const adminSelector = 'admin-component';
 let AdminComponent = class AdminComponent {
+    constructor() {
+        this.notice = "Hello";
+        this.$ex1 = jquery__WEBPACK_IMPORTED_MODULE_2__("#ex1");
+        this.$ex1.on("change", () => {
+            alert("Handler for .change() called.");
+        });
+    }
+    ngOnInit() {
+    }
 };
 AdminComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: adminSelector,
         template: `
-    <p>Hello</p>
+    <br>
+    <p style="color: red;">{{notice}}</p>
   `
     })
 ], AdminComponent);
@@ -625,6 +638,15 @@ jquery__WEBPACK_IMPORTED_MODULE_2__(function () {
         jquery__WEBPACK_IMPORTED_MODULE_2__('body').addClass('__ng2-bootstrap-has-run');
     }).catch(err => console.error(err));
 });
+(function ($) {
+    $(function () {
+        console.log('Initializing');
+        $(document)
+            .ajaxStop(() => {
+            console.log(111);
+        });
+    });
+}(jquery__WEBPACK_IMPORTED_MODULE_2__));
 
 
 /***/ })
