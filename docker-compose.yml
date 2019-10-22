@@ -1,0 +1,21 @@
+web:
+  build: .
+  environment:
+    - "RAILS_CACHE_STORE=file_store"
+    - "SECRET_KEY_BASE=d4e74f017910ac56c6ebad01165b7e1b37f4c9c02e9716836f8670cdc8d65a231e64e4f6416b19c8"
+    - "RAILS_ENV=production"
+  ports:
+    - "5000:8080"
+  command: "./docker/web"
+  memory: 1024
+
+worker:
+  build: .
+  environment:
+    - "RAILS_CACHE_STORE=file_store"
+    - "SECRET_KEY_BASE=d4e74f017910ac56c6ebad01165b7e1b37f4c9c02e9716836f8670cdc8d65a231e64e4f6416b19c8"
+    - "RAILS_ENV=production"
+  command: "./docker/worker --seed"
+  memory: 384
+  volumes_from:
+    - web
