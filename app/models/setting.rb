@@ -1,4 +1,4 @@
 class Setting
-  @@uri = "http://web:5000"
+  @@uri = "http://localhost:5000"
   cattr_accessor :uri
 end
