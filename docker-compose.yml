@@ -1,21 +1,27 @@
-web:
-  build: .
-  environment:
-    - "RAILS_CACHE_STORE=file_store"
-    - "SECRET_KEY_BASE=d4e74f017910ac56c6ebad01165b7e1b37f4c9c02e9716836f8670cdc8d65a231e64e4f6416b19c8"
-    - "RAILS_ENV=production"
-  ports:
-    - "5000:8080"
-  command: "./docker/web"
-  memory: 1024
-
-worker:
-  build: .
-  environment:
-    - "RAILS_CACHE_STORE=file_store"
-    - "SECRET_KEY_BASE=d4e74f017910ac56c6ebad01165b7e1b37f4c9c02e9716836f8670cdc8d65a231e64e4f6416b19c8"
-    - "RAILS_ENV=production"
-  command: "./docker/worker --seed"
-  memory: 384
-  volumes_from:
-    - web
+version: '2'
+services:
+  web:
+    build: .
+    links:
+      - redis
+    environment:
+      - "RAILS_CACHE_STORE=file_store"
+      - "SECRET_KEY_BASE=d4e74f017910ac56c6ebad01165b7e1b37f4c9c02e9716836f8670cdc8d65a231e64e4f6416b19c8"
+      - "JOB_WORKER_URL=redis://redis:6379/0"
+    ports:
+      - "5000:5000"
+    command: bundle exec puma -p 5000 -C config/puma.rb
+  redis:
+    image: redis:5.0.6
+    command: redis-server
+    ports:
+      - "6379:6379"
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq
+    links:
+      - "web:127.0.0.1"
+    depends_on:
+      - redis
+    environment:
+      - "JOB_WORKER_URL=redis://redis:6379/0"

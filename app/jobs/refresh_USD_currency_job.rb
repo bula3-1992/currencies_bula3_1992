@@ -22,8 +22,17 @@ class RefreshUSDCurrencyJob
     request = Net::HTTP::Post.new(uri, 'Content-Type' => 'application/json')
     request.body = body.to_json
 
-    Net::HTTP.start(uri.hostname, uri.port) do |http|
-      http.request(request)
+    begin #try for regular
+      Net::HTTP.start(uri.hostname, uri.port) do |http|
+        http.request(request)
+      end
+    end
+
+    begin #try for docker
+      uri = URI(Setting.uri.sub!("localhost","web") + "/v1/usd")
+      Net::HTTP.start(uri.hostname, uri.port) do |http|
+        http.request(request)
+      end
     end
     self.class.perform_in(1.minute)
   end

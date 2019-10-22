@@ -1,4 +1,4 @@
-FROM ruby:2.6-stretch
+FROM ruby:2.6.1
 MAINTAINER BULA3-1992 <BULA3@MAIL.RU>
 
 # Можно поменять значение S_K_B
@@ -10,9 +10,6 @@ ENV APP_PATH /usr/src/app
 
 # install node + npm
 RUN curl https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz | tar xzf - -C /usr/local --strip-components=1
-
-RUN apt-get update -qq && \
-	apt-get redis-server -y
 
 # using /home/app since npm cache and other stuff will be put there when running npm install
 # we don't want to pollute any locally-mounted directory
@@ -33,7 +30,6 @@ RUN cd /tmp/npm/frontend/ && RAILS_ENV=production npm install && mv /tmp/npm/fro
 
 # Finally, copy over the whole thing
 COPY . /usr/src/app
-RUN cp docker/Procfile .
 
-CMD ["./docker/web"]
-ENTRYPOINT ["./docker/entrypoint.sh"]
+# Run the npm postinstall manually after it was copied
+RUN RAILS_ENV=production npm run build
