@@ -27,7 +27,7 @@
     "document-register-element": "^1.7.2",
     "expose-loader": "^0.7.5",
     "jquery": "^3.4.1",
-    "jquery-ui": "^1.12.1",
+    "jquery-ui": "^1.13.2",
     "jquery.caret": "^0.3.1",
     "moment": "^2.24.0",
     "ngx-build-plus": "^8.1.5",
